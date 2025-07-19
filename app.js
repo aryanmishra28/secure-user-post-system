@@ -78,7 +78,7 @@ app.get('/logout', (req, res) => {
 });
 
 app.get('/profile', isLoggedIn, async (req, res) => {
-    let user = await userModel.findOne({ email: req.user.email });
+    let user = await userModel.findOne({ email: req.user.email }).populate('posts');
     res.render('profile', { user }); // Render the profile page with user data, user gets the data from the token and sends it to the profile page
 })
 
@@ -99,8 +99,16 @@ function isLoggedIn(req, res, next) {
     }
 }
 
-app.get('/createpost', isLoggedIn, (req, res) => {
-    res.render('createpost'); // Render the create post page
+app.post('/createpost', isLoggedIn, async (req, res) => {
+let user = await userModel.findOne({ email: req.user.email });
+let {content} = req.body;
+let post = await postModel.create({
+    user: user._id,
+    content
+});
+user.posts.push(post._id);
+await user.save();
+res.redirect('/profile'); // Redirect to the profile page after creating the post
 });
 
 
