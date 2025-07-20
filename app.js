@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const path = require('path');
+const post = require('./modules/post');
 
 app.set('view engine', 'ejs');
 app.use(express.json());
@@ -81,6 +82,27 @@ app.get('/profile', isLoggedIn, async (req, res) => {
     let user = await userModel.findOne({ email: req.user.email }).populate('posts');
     res.render('profile', { user }); // Render the profile page with user data, user gets the data from the token and sends it to the profile page
 })
+
+app.get('/like/:id', isLoggedIn, async (req, res) => {
+  let post = await postModel.findOne({ _id: req.params.id }).populate('user');
+
+  if (post.likes.indexOf(req.user.id) === -1 ) {
+    post.likes.push(req.user.id); // Add like
+  } else {
+    post.likes.splice(post.likes.indexOf(req.user.id), 1); // Remove like
+  }
+
+  await post.save();
+  res.redirect('/profile'); // ✅ Proper redirect
+});
+
+app.get('/edit/:id', isLoggedIn, async (req, res) => {
+    let post = await postModel.findOne({ _id: req.params.id }).populate('user');
+
+    res.render('edit', {post}); // Render the edit page with the post data
+});
+
+
 
 function isLoggedIn(req, res, next) {
     const token = req.cookies.token;
