@@ -1,38 +1,51 @@
-# Secure User Post System 🛡️📝
+# 🧑‍💻 Full-Stack Auth & Post Management App
 
-A mini full-stack web application built with **Node.js**, **Express.js**, **EJS**, **MongoDB**, **bcrypt**, **JWT**, and **Tailwind CSS**. It provides secure user authentication and a basic post management system.
+This is a full-stack web application built using **Node.js**, **Express.js**, **MongoDB**, **EJS**, and **Tailwind CSS**. It features **user registration, login with JWT authentication**, and **basic post creation/edit/delete functionalities** — perfect for learning full-stack development and showcasing practical skills.
 
-## 🔐 Features
+---
 
-- User Registration with hashed passwords
-- Secure Login using JWT (stored in cookies)
-- Protected Routes (e.g., Profile)
-- User Logout
-- EJS templating for frontend views
-- Cookie-based session authentication
-- MongoDB database integration via Mongoose
+## 🚀 Features
+
+- ✅ User Registration
+- ✅ Login with JWT-based authentication
+- ✅ Create, Read, Update, Delete (CRUD) posts
+- ✅ User Profile page
+- ✅ Like/Unlike functionality
+- ✅ Protected routes using middleware
+- ✅ Styled with Tailwind CSS
+- ✅ MongoDB integration using Mongoose
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Backend**: Node.js, Express.js
-- **Frontend**: EJS, Tailwind CSS
-- **Database**: MongoDB
-- **Authentication**: bcrypt, JSON Web Token (JWT)
-- **Middleware**: cookie-parser
+- **Backend:** Node.js, Express.js
+- **Frontend:** EJS Templates + Tailwind CSS
+- **Database:** MongoDB with Mongoose
+- **Auth:** JWT & bcrypt for password hashing
+- **Templating Engine:** EJS
+- **Utilities:** Cookie Parser, Express Middleware
+
+---
 
 ## 📂 Project Structure
 
-Mini-project/
-├── modules/
-│ ├── user.js
-│ └── post.js
+```bash
+├── models/
+│   ├── user.js
+│   └── post.js
 ├── views/
-│ ├── index.ejs
-│ └── login.ejs
+│   ├── home.ejs
+│   ├── profile.ejs
+│   ├── login.ejs
+│   ├── post.ejs
+│   └── edit.ejs
+├── public/
+│   └── (static assets if any)
 ├── app.js
-├── package.json
-├── .gitignore
-└── README.md
+├── index.js
+└── package.json
+
 
 
 ## 🚀 Getting Started
