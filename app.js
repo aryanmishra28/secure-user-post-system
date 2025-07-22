@@ -50,7 +50,6 @@ app.get('/login', async (req, res) => { // Render the login page
     res.render('login');
 });
 
-
 app.post('/login', async function (req, res) {
     let { email, password } = req.body;
     if (!email || !password) {
@@ -91,9 +90,19 @@ app.get('/like/:id', isLoggedIn, async (req, res) => {
   } else {
     post.likes.splice(post.likes.indexOf(req.user.id), 1); // Remove like
   }
-
   await post.save();
   res.redirect('/profile'); // ✅ Proper redirect
+});
+
+
+app.get("/delete/:id", isLoggedIn, async (req, res) => {
+    let post = await postModel.findOneAndDelete({ _id: req.params.id });
+    if (!post) {
+        return res.status(404).send("Post not found");
+    }
+    await userModel.updateOne({ _id: post.user }, { $pull: { posts: post._id } });
+    console.log("Post deleted successfully");
+    res.redirect('/profile'); // Redirect to profile after deletion
 });
 
 app.get('/edit/:id', isLoggedIn, async (req, res) => {
@@ -101,6 +110,15 @@ app.get('/edit/:id', isLoggedIn, async (req, res) => {
 
     res.render('edit', {post}); // Render the edit page with the post data
 });
+
+
+  app.post('/update/:id', isLoggedIn, async (req, res) => {
+  let post = await postModel.findOneAndUpdate({ _id: req.params.id }, {content: req.body.content})
+  if (!post) {
+      return res.status(404).send("Post not found");
+  }
+  res.redirect('/profile'); // Redirect to the profile page after updating the post
+  });
 
 
 

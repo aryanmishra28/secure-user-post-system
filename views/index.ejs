@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Auth Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="w-f text-white h-screen bg-zinc-900 p-10">
-        <h3 class="text-3xl mb-3">Create Account</h3>
-        <form method="post" action="/create">
-            <input class="px-3 py-2 rounded-md bg-transparent border-2 border-zinc-800 outline-none" type="text" placeholder="name" name="name">
-            <input class="px-3 py-2 rounded-md bg-transparent border-2 border-zinc-800 outline-none" type="text" placeholder="username" name="username">
-            <input class="px-3 py-2 rounded-md bg-transparent border-2 border-zinc-800 outline-none" type="text" placeholder="email" name="email">
-            <input class="px-3 py-2 rounded-md bg-transparent border-2 border-zinc-800 outline-none" type="password" placeholder="password" name="password">
-            <input class="px-3 py-2 rounded-md bg-transparent border-2 border-zinc-800 outline-none" type="text" placeholder="age" name="age">
-            <input class="px-3 py-2 rounded-md bg-blue-500" type="submit" value="Create User">
+<body class="bg-zinc-900 text-white">
 
-        </form>
-    </div>
+  <div class="min-h-screen flex flex-col items-center justify-center p-8 space-y-6">
+
+    <section id="registerSection" class="w-full max-w-md bg-zinc-800 p-8 rounded-lg shadow-md">
+      <h3 class="text-3xl font-semibold mb-6 text-center">Create Account</h3>
+      <form method="POST" action="/create" class="space-y-4">
+        <input type="text" name="name" placeholder="Name" class="w-full px-3 py-2 rounded-md bg-transparent border border-zinc-700 outline-none" />
+        <input type="text" name="username" placeholder="Username" class="w-full px-3 py-2 rounded-md bg-transparent border border-zinc-700 outline-none" />
+        <input type="text" name="email" placeholder="Email" class="w-full px-3 py-2 rounded-md bg-transparent border border-zinc-700 outline-none" />
+        <input type="password" name="password" placeholder="Password" class="w-full px-3 py-2 rounded-md bg-transparent border border-zinc-700 outline-none" />
+        <input type="text" name="age" placeholder="Age" class="w-full px-3 py-2 rounded-md bg-transparent border border-zinc-700 outline-none" />
+        <input type="submit" value="Create User" class="w-full bg-blue-500 py-2 rounded-md hover:bg-blue-600 cursor-pointer" />
+      </form>
+
+      <!-- OR Login Link -->
+      <div class="flex items-center justify-center mt-6">
+        <div class="border-t border-zinc-600 w-full"></div>
+        <span class="px-4 text-zinc-400 text-sm">OR</span>
+        <div class="border-t border-zinc-600 w-full"></div>
+      </div>
+     <p class="text-center mt-4 text-sm">
+  Already have an account?
+  <a href="/login" class="text-green-400 underline hover:text-green-300">Login</a>
+</p>
+
+    </section>
 </body>
 </html>
