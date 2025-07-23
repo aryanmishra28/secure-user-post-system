@@ -1,21 +1,35 @@
 const express = require('express');
 const app=express();
-const userModel = require('./modules/user');
-const postModel = require('./modules/post');
+const userModel = require('./models/user');
+const postModel = require('./models/post');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const path = require('path');
-const post = require('./modules/post');
+const post = require('./models/post');
+const crypto = require('crypto');
+const upload = require('./config/multerconfig');
 
 app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 
 
 app.get('/', (req, res) => {
   res.render('index');
+});
+
+app.get('/profile/upload', (req, res) => {
+    res.render('profileupload'); // Render the upload page
+});
+
+app.post('/upload', isLoggedIn, upload.single("image"), async (req, res) => {
+ let user = await userModel.findOne({ email: req.user.email });
+ user.profilepic = req.file.filename; // Save the uploaded file name to the user's profile
+ await user.save();
+ res.redirect('/profile'); // Redirect to the profile page after upload
 });
 
 

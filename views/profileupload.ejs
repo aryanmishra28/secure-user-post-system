@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Auth Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-900 text-white">
+    <html>
+      <div class="min-h-screen w-full bg-zinc-900 text-white p-10">
+       <h3 class="text-3xl font-semibold mb-6 text-center">Upload Profile Picture</h3>
+       <form  autocomplete="off" method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <input type="submit" value="Upload" class="w-1/6 bg-blue-500 px-2 py-2 rounded-md hover:bg-blue-600 cursor-pointer mt-4">
+       </form>
+       </div>
+    </html>
+</body>
