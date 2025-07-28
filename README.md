@@ -19,13 +19,13 @@ This is a full-stack web application built using **Node.js**, **Express.js**, **
 ### 🧾 Images
 
 #### 📁  Create Account
-![Home](./images/homepage.png)
+![Create Account](https://github.com/aryanmishra28/secure-user-post-system/blob/main/images/Create%20Account.png)
 
 #### ✏️ Login Page
-![Edit](./images/edit-file.png)
+![Login](https://github.com/aryanmishra28/secure-user-post-system/blob/main/images/login.png))
 
 #### ➕ Profile Page
-![Create](./images/create-file.png)
+![Profile](https://github.com/aryanmishra28/secure-user-post-system/blob/main/images/user%20profile.png))
 
 
 ## 🛠️ Tech Stack
