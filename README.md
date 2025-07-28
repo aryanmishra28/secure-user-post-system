@@ -16,6 +16,17 @@ This is a full-stack web application built using **Node.js**, **Express.js**, **
 - ✅ MongoDB integration using Mongoose
 
 ---
+### 🧾 Images
+
+#### 📁  Create Account
+![Home](./images/homepage.png)
+
+#### ✏️ Login Page
+![Edit](./images/edit-file.png)
+
+#### ➕ Profile Page
+![Create](./images/create-file.png)
+
 
 ## 🛠️ Tech Stack
 
