@@ -25,7 +25,7 @@ This is a full-stack web application built using **Node.js**, **Express.js**, **
 ![Login](https://github.com/aryanmishra28/secure-user-post-system/blob/main/images/login.png))
 
 #### ➕ Profile Page
-![Profile](https://github.com/aryanmishra28/secure-user-post-system/blob/main/images/user%20profile.png))
+![Profile](https://github.com/aryanmishra28/secure-user-post-system/blob/main/images%20for%20git/user%20profile%20(2).png)
 
 
 ## 🛠️ Tech Stack
