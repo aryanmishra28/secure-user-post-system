@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.get('/profile/upload', (req, res) => {
+app.get('/profileupload', (req, res) => {
     res.render('profileupload'); // Render the upload page
 });
 
